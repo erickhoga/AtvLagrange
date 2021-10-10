@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>HTML Atividade Tania CN - Lagrange</h1>
+
+
+<form>	
+     <input type="text" size="2" name="numx0"> X0
+     <input type="text" size="2" name="numy0"> Y0
+     &emsp;&emsp;&emsp; 
+<br>
+     <input type="text" size="2" name="numx1"> X1
+     <input type="text" size="2" name="numy1"> Y1
+     &emsp;&emsp;&emsp; 
+<br>
+     <input type="text" size="2" name="numx2"> X2
+     <input type="text" size="2" name="numy2"> Y2
+     &emsp;&emsp;&emsp; 
+<br>
+<br>
+
+<hr>
+    <input type="button" value="Carregar" onclick="montarFuncao()">
+<br><hr><br>
+    	L0: <input type="text" name="resultadol0"><br>
+	L1: <input type="text" name="resultadol1"><br>
+	L2: <input type="text" name="resultadol2"><br>
+<hr>
+	y0+L0: <input type="text" name="resultadoy0l0"><br>
+	y1+L1: <input type="text" name="resultadoy1l1"><br>
+	y2+L2: <input type="text" name="resultadoy2l2"><br>
+</form>
+
+<script>
+    function montarFuncao() {
+        let x0 = document.getElementsByName("numx0")[0].value;
+        let y0 = document.getElementsByName("numy0")[0].value;
+        let x1 = document.getElementsByName("numx1")[0].value;
+        let y1 = document.getElementsByName("numy1")[0].value;
+        let x2 = document.getElementsByName("numx2")[0].value;
+        let y2 = document.getElementsByName("numy2")[0].value;
+
+	temx0 = "x";
+	temx1 = "x";
+	temx2 = "x";
+
+
+
+	l0d = ((x0-x1)*(x0-x2));
+	l0x = (-x1)+(-x2);
+	if(l0x == 0){
+		l0x = "";
+		temx0 = "";
+	}
+	l0n = (-x1)*(-x2);
+	if(l0n == 0){
+		l0n = "";
+	}
+
+//------------------------------------------------------------
+
+	l1d = ((x1-x0)*(x1-x2));
+	l1x = (-x0)+(-x2);
+	if(l1x == 0){
+		l1x = "";
+		temx1 = "";
+	}
+	l1n = (-x0)*(-x2);
+	if(l1n == 0){
+		l1n = "";
+	}
+
+//--------------------------------------------------------------
+
+	l2d = ((x2-x0)*(x2-x1));
+	l2x = (-x0)+(-x1);
+	if(l2x == 0){
+		l2x = "";
+		temx2 = "";
+	}
+	l2n = (-x0)*(-x1);
+	if(l2n == 0){
+		l2n = "";
+	}
+
+//---------------------------------------------------------------
+
+
+	y0l0 = "x²/"+l0d/y0+"   "+l0x+temx0+"/"+l0d/y0+"   "+l0n; 
+	y1l1 = "x²/"+l1d/y1+"   "+l1x+temx1+"/"+l1d/y1+"   "+l1n; 
+	y2l2 = "x²/"+l2d/y2+"   "+l2x+temx2+"/"+l2d/y2+"   "+l2n; 
+	//lalala = (y0*l0d)+(y1*l1)+(y2*l2);
+
+
+	resultL0 = "x²"+l0x+temx0+l0n+"/"+l0d;
+	resultL1 = "x²"+l1x+temx1+l1n+"/"+l1d;
+	resultL2 = "x²"+l2x+temx2+l2n+"/"+l2d;
+
+	document.getElementsByName("resultadoy0l0")[0].value = y0l0;
+	document.getElementsByName("resultadoy1l1")[0].value = y1l1;
+	document.getElementsByName("resultadoy2l2")[0].value = y2l2;
+
+	document.getElementsByName("resultadol0")[0].value = resultL0;
+	document.getElementsByName("resultadol1")[0].value = resultL1;
+	document.getElementsByName("resultadol2")[0].value = resultL2;
+    }
+
+
+</script>
+
+
+</body>
+</html>
